@@ -1,0 +1,19 @@
+version: "2"
+services:
+  postgres:
+    image: postgres:9.6-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=proj
+      - POSTGRES_DB=proj_production
+    volumes:
+      - proj-volume:/var/lib/postgresql/data
+
+volumes:
+  proj-volume:
+
+networks:
+  proj-net:
+    driver: bridge
