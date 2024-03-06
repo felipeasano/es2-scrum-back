@@ -1,28 +1,32 @@
 package com.example.Projeto.models.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
+@Data
 public class Profissional {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    // endereco
 
     private String nome;
 
     private LocalDate nascimento;
 
-    private String genero;
+    @Enumerated(EnumType.STRING)
+    private Etnia etnia;
 
-    private String raca;
+    @Enumerated(EnumType.STRING)
+    private Genero genero;
 
-    // especialidade
+    @ManyToOne
+    @JoinColumn(name = "fk_especialidade")
+    private Especialidade especialidade;
+
+    @ManyToMany
+    private List<Time> times;
 }

@@ -1,11 +1,12 @@
 package com.example.Projeto.models.entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 
+@Entity
+@Data
 public class Projeto {
 
     @Id
@@ -14,7 +15,7 @@ public class Projeto {
 
     private String nome;
 
-    private String cliente;
+    private String nomeCliente;
 
     private String objetivo;
 
@@ -22,7 +23,9 @@ public class Projeto {
 
     private LocalDate fim;
 
-    private float valor;
+    private double valor;
 
-    //time
+    @ManyToOne
+    @JoinColumn(name = "fk_time")
+    private Time timeResponsavel;
 }

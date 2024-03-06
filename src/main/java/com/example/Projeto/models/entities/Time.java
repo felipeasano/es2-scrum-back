@@ -1,9 +1,12 @@
 package com.example.Projeto.models.entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
+import java.util.List;
+
+@Entity
+@Data
 public class Time {
 
     @Id
@@ -12,5 +15,9 @@ public class Time {
 
     private String nome;
 
-    //lista de integrantes do time
+    @ManyToMany
+    private List<Profissional> integrantes;
+
+    @OneToMany(mappedBy = "timeResponsavel")
+    private List<Projeto> projetos;
 }
