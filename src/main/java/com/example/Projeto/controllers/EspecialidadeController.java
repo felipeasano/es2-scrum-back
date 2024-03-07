@@ -12,6 +12,7 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/especialidade")
+@CrossOrigin
 public class EspecialidadeController {
 
     private final EspecialidadeRepository especialidadeRepository;
@@ -39,7 +40,7 @@ public class EspecialidadeController {
         if (!especialidadeRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
-        especialidade.setId(id); // Garante que o ID seja definido para atualização
+        especialidade.setId(id);
         especialidadeRepository.save(especialidade);
         return ResponseEntity.noContent().build();
     }

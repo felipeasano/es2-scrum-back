@@ -15,4 +15,12 @@ public class Especialidade {
     private Long id;
 
     private String nome;
+
+    public Especialidade(String nome) {
+        this.nome = nome;
+    }
+
+    public Especialidade() {
+
+    }
 }

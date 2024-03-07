@@ -1,5 +1,7 @@
 package com.example.Projeto.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,6 +17,7 @@ public class Profissional {
 
     private String nome;
 
+    @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate nascimento;
 
     @Enumerated(EnumType.STRING)
@@ -23,9 +26,14 @@ public class Profissional {
     @Enumerated(EnumType.STRING)
     private Genero genero;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     @JoinColumn(name = "fk_especialidade")
     private Especialidade especialidade;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_endereco")
+    @JsonProperty("endereco")
+    private Endereco endereco;
 
     @ManyToMany
     private List<Time> times;

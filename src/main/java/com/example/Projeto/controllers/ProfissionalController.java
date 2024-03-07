@@ -1,6 +1,8 @@
 package com.example.Projeto.controllers;
 
+import com.example.Projeto.models.entities.Especialidade;
 import com.example.Projeto.models.entities.Profissional;
+import com.example.Projeto.repositories.EspecialidadeRepository;
 import com.example.Projeto.repositories.ProfissionalRepository;
 import com.example.Projeto.repositories.ProjetoRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,12 +16,17 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/profissional")
+@CrossOrigin
 public class ProfissionalController {
 
     private final ProfissionalRepository profissionalRepository;
+    private final EspecialidadeRepository especialidadeRepository;
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody Profissional profissional) {
+        Optional<Especialidade> optEspecialidade = especialidadeRepository.findByNome(profissional.getEspecialidade().getNome());
+        optEspecialidade.ifPresent(profissional::setEspecialidade);
+
         Profissional saved = profissionalRepository.save(profissional);
         return ResponseEntity.ok(saved);
     }

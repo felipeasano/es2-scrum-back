@@ -3,6 +3,7 @@ package com.example.Projeto.models.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,8 +17,9 @@ public class Time {
     private String nome;
 
     @ManyToMany
-    private List<Profissional> integrantes;
+    private List<Profissional> integrantes = new ArrayList<>();
 
     @OneToMany(mappedBy = "timeResponsavel")
-    private List<Projeto> projetos;
+    private List<Projeto> projetos = new ArrayList<>();
+
 }
