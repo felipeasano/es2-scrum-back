@@ -1,6 +1,6 @@
 package com.example.Projeto.controllers;
 
-import com.example.Projeto.models.entities.Especialidade;
+import com.example.Projeto.entities.Especialidade;
 import com.example.Projeto.repositories.EspecialidadeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

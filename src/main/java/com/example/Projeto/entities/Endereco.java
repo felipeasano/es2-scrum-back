@@ -1,4 +1,4 @@
-package com.example.Projeto.models.entities;
+package com.example.Projeto.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,19 +8,19 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Especialidade {
+public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
+    private String cidade;
 
-    public Especialidade(String nome) {
-        this.nome = nome;
-    }
+    private String bairro;
 
-    public Especialidade() {
+    private String estado;
 
-    }
+    private String rua;
+
+    private int numero;
 }

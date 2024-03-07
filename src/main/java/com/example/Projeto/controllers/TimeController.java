@@ -1,7 +1,7 @@
 package com.example.Projeto.controllers;
 
-import com.example.Projeto.models.entities.Profissional;
-import com.example.Projeto.models.entities.Time;
+import com.example.Projeto.entities.Profissional;
+import com.example.Projeto.entities.Time;
 import com.example.Projeto.repositories.ProfissionalRepository;
 import com.example.Projeto.repositories.TimeRepository;
 import lombok.RequiredArgsConstructor;
@@ -37,6 +37,7 @@ public class TimeController {
         Optional<Time> time = timeRepository.findById(id);
         return time.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+
     @PostMapping("/{timeId}/integrantes/{profissionalId}")
     public ResponseEntity<?> addIntegrante(@PathVariable Long timeId, @PathVariable Long profissionalId) {
         Optional<Time> timeOptional = timeRepository.findById(timeId);

@@ -1,5 +1,6 @@
-package com.example.Projeto.models.entities;
+package com.example.Projeto.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,8 +20,10 @@ public class Projeto {
 
     private String objetivo;
 
+    @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate inicio;
 
+    @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate fim;
 
     private double valor;

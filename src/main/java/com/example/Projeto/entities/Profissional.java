@@ -1,4 +1,4 @@
-package com.example.Projeto.models.entities;
+package com.example.Projeto.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Data
@@ -34,7 +33,4 @@ public class Profissional {
     @JoinColumn(name = "fk_endereco")
     @JsonProperty("endereco")
     private Endereco endereco;
-
-    @ManyToMany
-    private List<Time> times;
 }

@@ -1,4 +1,4 @@
-package com.example.Projeto.models.entities;
+package com.example.Projeto.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -18,8 +18,4 @@ public class Time {
 
     @ManyToMany
     private List<Profissional> integrantes = new ArrayList<>();
-
-    @OneToMany(mappedBy = "timeResponsavel")
-    private List<Projeto> projetos = new ArrayList<>();
-
 }

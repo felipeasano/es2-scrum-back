@@ -1,12 +1,10 @@
 package com.example.Projeto.controllers;
 
-import com.example.Projeto.models.entities.Especialidade;
-import com.example.Projeto.models.entities.Profissional;
+import com.example.Projeto.entities.Especialidade;
+import com.example.Projeto.entities.Profissional;
 import com.example.Projeto.repositories.EspecialidadeRepository;
 import com.example.Projeto.repositories.ProfissionalRepository;
-import com.example.Projeto.repositories.ProjetoRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

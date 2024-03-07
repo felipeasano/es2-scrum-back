@@ -1,7 +1,6 @@
 package com.example.Projeto.repositories;
 
-import com.example.Projeto.models.entities.Especialidade;
-import com.example.Projeto.models.entities.Projeto;
+import com.example.Projeto.entities.Especialidade;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
