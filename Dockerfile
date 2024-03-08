@@ -6,3 +6,4 @@ COPY target/*.jar app.jar
 
 ENTRYPOINT ["java","-jar","/app.jar"]
 
+# docker build . -t proj/back
